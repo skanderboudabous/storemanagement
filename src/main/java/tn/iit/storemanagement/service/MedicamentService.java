@@ -2,6 +2,7 @@ package tn.iit.storemanagement.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tn.iit.storemanagement.dao.MedicamentDao;
 import tn.iit.storemanagement.domain.Medicament;
@@ -10,7 +11,8 @@ import tn.iit.storemanagement.mappers.MedicamentMapper;
 
 import java.util.Collection;
 import java.util.List;
-
+@Transactional
+@Service
 public class MedicamentService {
     private final MedicamentDao medicamentDao;
     @Autowired
