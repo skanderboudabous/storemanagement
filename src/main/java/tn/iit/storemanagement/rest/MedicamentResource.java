@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.iit.storemanagement.dto.MedicamentDto;
 import tn.iit.storemanagement.service.MedicamentService;
 
-import javax.validation.Valid;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -37,18 +37,18 @@ public class MedicamentResource {
     }
 
     @PostMapping
-    public MedicamentDto add(@Valid @RequestBody MedicamentDto medicamentDto) {
+    public MedicamentDto add(@RequestBody MedicamentDto medicamentDto) {
 
         return this.medicamentService.save (medicamentDto);
     }
 
     @PostMapping("/searches")
-    public Collection<MedicamentDto> searches(@Valid @RequestBody List<Long> ids){
+    public Collection<MedicamentDto> searches(@RequestBody List<Long> ids){
         return this.medicamentService.findAllByIds(ids);
     }
 
     @PutMapping()
-    public MedicamentDto update(@Valid @RequestBody MedicamentDto medicamentDto) {
+    public MedicamentDto update(@RequestBody MedicamentDto medicamentDto) {
         return this.medicamentService.save (medicamentDto);
     }
 

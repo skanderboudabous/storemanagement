@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import tn.iit.storemanagement.dto.CategoryDto;
 import tn.iit.storemanagement.service.CategoryService;
 
-import javax.validation.Valid;
 import java.util.Collection;
 
 @CrossOrigin("*")
@@ -30,12 +29,12 @@ public class CategoryResource {
     }
 
     @PostMapping
-    public CategoryDto add(@Valid @RequestBody CategoryDto categoryDto){
+    public CategoryDto add(@RequestBody CategoryDto categoryDto){
         return this.categoryService.save (categoryDto);
     }
 
     @PutMapping
-    public CategoryDto update(@Valid @RequestBody CategoryDto categoryDto){
+    public CategoryDto update(@RequestBody CategoryDto categoryDto){
         return this.categoryService.save (categoryDto);
     }
 
