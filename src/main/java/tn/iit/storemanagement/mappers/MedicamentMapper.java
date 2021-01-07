@@ -4,6 +4,10 @@ import tn.iit.storemanagement.domain.Medicament;
 import tn.iit.storemanagement.dto.CategoryDto;
 import tn.iit.storemanagement.dto.MedicamentDto;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public class MedicamentMapper {
     public static MedicamentDto medicamentToMedicamentDto(Medicament medicament)
     {
@@ -28,5 +32,13 @@ public class MedicamentMapper {
         medicament.setPrice (medicamentDto.getPrice ());
         medicament.setName (medicamentDto.getName ());
         return medicament;
+    }
+    public static Collection<MedicamentDto> medicamentsToMedicamentDtos(Collection<Medicament> medicaments)
+    {
+        List<MedicamentDto> medicamentDtoList = new ArrayList<>();
+        medicaments.forEach(medicament -> {
+            medicamentDtoList.add (medicamentToMedicamentDto (medicament));
+        });
+        return medicamentDtoList;
     }
 }

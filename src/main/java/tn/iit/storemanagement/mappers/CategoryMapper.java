@@ -3,6 +3,10 @@ package tn.iit.storemanagement.mappers;
 import tn.iit.storemanagement.domain.Category;
 import tn.iit.storemanagement.dto.CategoryDto;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public class CategoryMapper {
     public static CategoryDto categoryToCategoryDto(Category category)
     {
@@ -18,5 +22,13 @@ public class CategoryMapper {
         category.setId (categoryDto.getId ());
         category.setName (categoryDto.getName ());
         return category;
+    }
+    public static Collection<CategoryDto> categoriesToCategoriesDtos(Collection<Category> categories)
+    {
+        List<CategoryDto> categoryDtoList = new ArrayList<>();
+        categories.forEach(category -> {
+            categoryDtoList.add (categoryToCategoryDto (category));
+        });
+        return categoryDtoList;
     }
 }
